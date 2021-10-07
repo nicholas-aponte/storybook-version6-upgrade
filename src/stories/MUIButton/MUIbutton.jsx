@@ -5,12 +5,11 @@ import { Button } from '@mui/material';
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({color, backgroundColor, size, label, ...props }) => {
+export const Button = ({color, backgroundColor, size, label, style, ...props }) => {
   return (
     <Button
       size = {size}
-      style = {{backgroundColor: backgroundColor, 
-      }}
+      style = {style}
       // className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
       color={color}
     >
@@ -20,6 +19,10 @@ export const Button = ({color, backgroundColor, size, label, ...props }) => {
 };
 
 Button.propTypes = {
+  /**
+   * component css styles
+   */
+  style: PropTypes.object,
   /**
    * Is this the principal call to action on the page?
    */
@@ -31,7 +34,7 @@ Button.propTypes = {
   /**
    * How large should the button be?
    */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(["small", "medium", "large"]),
   /**
    * Button contents
    */
@@ -45,6 +48,6 @@ Button.propTypes = {
 Button.defaultProps = {
   backgroundColor: null,
   primary: false,
-  size: 'medium',
+  size: 'small',
   onClick: undefined,
 };

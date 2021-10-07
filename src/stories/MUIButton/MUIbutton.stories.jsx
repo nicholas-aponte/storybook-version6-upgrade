@@ -13,7 +13,9 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <Button {...args} >{args.label}</Button>;
+const Template = (args) => <Button onClick={() => {
+  console.log("test")
+}}{...args} >{args.label}</Button>;
 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
@@ -53,4 +55,17 @@ SecondaryColor.args = {
   variant: "contained",
   color: "secondary",
 };
+export const customStyle = Template.bind({});
+customStyle.args = {
+  size: "Large",
+  label: "style",
+  style: {
+   color: "yellow",
+   backgroundColor: "green"
+}
+};
+
+
+
+
 
