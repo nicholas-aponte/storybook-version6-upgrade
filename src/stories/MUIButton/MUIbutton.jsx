@@ -5,13 +5,14 @@ import { Button } from '@mui/material';
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({color, backgroundColor, size, label, style, ...props }) => {
+export const Button = ({ color, backgroundColor, size, label, style, ...props }) => {
+  const boolColor = color === "primary" ? color : "secondary"
   return (
     <Button
       size = {size}
       style = {style}
       // className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      color={color}
+      color={boolColor}
     >
       {test}
     </Button>
@@ -19,6 +20,7 @@ export const Button = ({color, backgroundColor, size, label, style, ...props }) 
 };
 
 Button.propTypes = {
+ textcolor: PropTypes.color,
   /**
    * component css styles
    */
@@ -46,7 +48,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  backgroundColor: null,
+  backgroundColor: "red",
   primary: false,
   size: 'small',
   onClick: undefined,
