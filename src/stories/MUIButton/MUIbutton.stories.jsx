@@ -9,10 +9,7 @@ export default {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     
-    color: {
-      options: ['primary', 'secondary'],
-      control: {type: 'radio'}
-    },
+    
     size: {
       options: ['small', 'medium', 'large'],
       control: {type: 'radio'}
@@ -73,7 +70,10 @@ Outlined.args = {
   size: "small",
   label: "Outlined",
   variant: "outlined",
-  color: "primary",
+  color: {
+    options: ["primary", "secondary"],
+    control: { type: "radio" },
+  },
 };
 
 export const Contained = Template.bind({});
@@ -81,14 +81,20 @@ Contained.args = {
   size: "small",
   label: "Contained",
   variant: "contained",
-  color: "primary",
+  color: {
+    options: ["primary", "secondary"],
+    control: { type: "radio" },
+  },
 };
 export const PrimaryColor = Template.bind({});
 PrimaryColor.args = {
   size: "Large",
   label: "PrimaryColor",
   variant: "contained",
-  color: "primary",
+  color: {
+    options: ["primary", "secondary"],
+    control: { type: "radio" },
+  },
 };
 
 
@@ -97,7 +103,10 @@ SecondaryColor.args = {
   size: "Large",
   label: "SecondayColor",
   variant: "contained",
-  color: "secondary",
+  color: {
+    options: ["primary", "secondary"],
+    control: { type: "radio" },
+  },
 };
 export const customStyle = Template.bind({});
 customStyle.args = {
@@ -106,8 +115,8 @@ customStyle.args = {
   style: {
    color: "yellow",
    backgroundColor: "green"
-   
-}
+  }
+ 
 };
 
 
