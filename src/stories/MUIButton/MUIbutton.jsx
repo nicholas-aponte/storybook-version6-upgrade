@@ -1,34 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Button } from '@mui/material';
+import React from "react";
+import PropTypes from "prop-types";
+import { Button } from "@mui/material";
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ color, size, label, style, ...props }) => {
-
-
-
-  
-console.log("test")
-  return (
-   
-    <Button
-      
-      size = {size}
-      style = {style}
-      // className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      color={color}
-    >
-
-      </Button>
-     
-  );
+export const Button = ({ ...props }) => {
+  console.log("test");
+  return <Button size={size} style={style} color={color}></Button>;
 };
 
 Button.propTypes = {
- 
- textcolor: PropTypes.color,
+  textcolor: PropTypes.color,
   /**
    * component css styles
    */
@@ -57,6 +40,4 @@ Button.propTypes = {
   onClick: PropTypes.func,
 };
 
-Button.defaultProps = {
-  
-};
+Button.defaultProps = {};

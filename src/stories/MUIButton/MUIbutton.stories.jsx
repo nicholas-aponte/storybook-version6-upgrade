@@ -8,14 +8,17 @@ export default {
   component: Button,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    backgroundcolor: { control: 'color' },
-    textcolor:{ control: 'color' },
+    
     color: {
       options: ['primary', 'secondary'],
       control: {type: 'radio'}
     },
     size: {
       options: ['small', 'medium', 'large'],
+      control: {type: 'radio'}
+    },
+    variant: {
+      options: ['contained', 'outlined', 'default'],
       control: {type: 'radio'}
     }
   },
@@ -30,13 +33,14 @@ function Template(args) {
     backgroundColor: args.backgroundcolor,
     color: args.textcolor
   }
-console.log(args)
+console.log(style)
   return (
     <Button
       size={args.size}
-      style={style}
+      style={style.color && style.backgroundColor ? style : null}
       // className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
       color={args.color}
+      {...args}
     >
       {args.label}
     </Button>
@@ -101,7 +105,8 @@ customStyle.args = {
   label: "style",
   style: {
    color: "yellow",
-   backgroundcolor: "green"
+   backgroundColor: "green"
+   
 }
 };
 
