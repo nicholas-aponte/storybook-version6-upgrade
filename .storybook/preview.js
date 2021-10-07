@@ -1,7 +1,6 @@
 import React from "react";
 import { theme } from "../src/theme"; // whereever you have defined your material ui theme
-// import { ThemeProvider } from "@mui/material";
-
+import { ThemeProvider } from "@mui/material";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -15,8 +14,8 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <MuiThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
       <Story />
-    </MuiThemeProvider>
+    </ThemeProvider>
   ),
 ];

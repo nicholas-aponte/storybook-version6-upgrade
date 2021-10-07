@@ -5,21 +5,29 @@ import { Button } from '@mui/material';
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ color, backgroundColor, size, label, style, ...props }) => {
-  const boolColor = color === "primary" ? color : "secondary"
+export const Button = ({ color, size, label, style, ...props }) => {
+
+
+
+  
+console.log("test")
   return (
+   
     <Button
+      
       size = {size}
       style = {style}
       // className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      color={boolColor}
+      color={color}
     >
-      {test}
-    </Button>
+
+      </Button>
+     
   );
 };
 
 Button.propTypes = {
+ 
  textcolor: PropTypes.color,
   /**
    * component css styles
@@ -32,11 +40,13 @@ Button.propTypes = {
   /**
    * What background color to use
    */
-  backgroundColor: PropTypes.string,
+  backgroundcolor: PropTypes.string,
   /**
    * How large should the button be?
    */
   size: PropTypes.oneOf(["small", "medium", "large"]),
+
+  test: PropTypes.oneOf(["one", "two", "three"]),
   /**
    * Button contents
    */
@@ -48,8 +58,5 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  backgroundColor: "red",
-  primary: false,
-  size: 'small',
-  onClick: undefined,
+  
 };

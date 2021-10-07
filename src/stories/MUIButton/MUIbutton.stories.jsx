@@ -8,20 +8,60 @@ export default {
   component: Button,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    backgroundColor: { control: 'color' },
+    backgroundcolor: { control: 'color' },
+    textcolor:{ control: 'color' },
+    color: {
+      options: ['primary', 'secondary'],
+      control: {type: 'radio'}
+    },
+    size: {
+      options: ['small', 'medium', 'large'],
+      control: {type: 'radio'}
+    }
   },
+
+
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <Button onClick={() => {
-  console.log("test")
-}}{...args} >{args.label}</Button>;
+// const Template = (args) => <Button {...args} >{args.label}</Button>;
+function Template(args) {
+  const style = {
+    backgroundColor: args.backgroundcolor,
+    color: args.textcolor
+  }
+console.log(args)
+  return (
+    <Button
+      size={args.size}
+      style={style}
+      // className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+      color={args.color}
+    >
+      {args.label}
+    </Button>
+  );
+}
+
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+
+
+export const Default = Template.bind({});
+
+export const CustomColorButton = Template.bind({});
+CustomColorButton.args = {
+  label: "Test",
+  backgroundcolor: "blue",
+  textcolor: "red",
+  variant: "contained"
+  
+ }
 
 export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-  color: "primary",
+  primary : true,
   label: 'Button',
+  test: "one"
 };
 
 export const Outlined = Template.bind({});
@@ -61,7 +101,7 @@ customStyle.args = {
   label: "style",
   style: {
    color: "yellow",
-   backgroundColor: "green"
+   backgroundcolor: "green"
 }
 };
 
