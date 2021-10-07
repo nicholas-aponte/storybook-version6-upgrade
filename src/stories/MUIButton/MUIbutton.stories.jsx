@@ -8,6 +8,7 @@ export default {
   component: Button,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
+    onClick: { action: 'clicked' },
     backgroundcolor: { control: 'color' },
     textcolor:{ control: 'color' },
     color: {
@@ -17,7 +18,7 @@ export default {
     size: {
       options: ['small', 'medium', 'large'],
       control: {type: 'radio'}
-    }
+    },
   },
 
 
@@ -37,6 +38,7 @@ console.log(args)
       style={style}
       // className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
       color={args.color}
+      onClick={args.onClick}
     >
       {args.label}
     </Button>

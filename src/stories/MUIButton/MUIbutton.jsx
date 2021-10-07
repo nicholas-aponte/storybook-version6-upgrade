@@ -5,7 +5,7 @@ import { Button } from '@mui/material';
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ color, size, label, style, ...props }) => {
+export const MUIbutton = ({ color, size, label, style, ...props }) => {
 
 
 
