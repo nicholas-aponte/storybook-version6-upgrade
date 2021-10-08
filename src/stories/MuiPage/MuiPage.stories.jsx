@@ -27,6 +27,6 @@ const Template = (args) => {
 export const DynamicForm = Template.bind({});
 DynamicForm.args = {
   ...formStories.DynamicForm.args,
-//  themes: Themes
+
 };
 

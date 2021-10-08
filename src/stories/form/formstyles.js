@@ -3,7 +3,8 @@ const Themes = [
   {
     name: "Dark",
     color: "white",
-    backgroundColor: "black",
+    backgroundColor: "grey",
+    
   },
   {
     name: "Light",

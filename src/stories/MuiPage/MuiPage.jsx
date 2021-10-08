@@ -36,9 +36,6 @@ MuiPage.propTypes = {
     options: ["Document", "Comment"],
     control: { type: "radio" },
   },
-  themes: {
-    options: ["Dark", "Light", "Red", "Blue"],
-    control: { type: "select" },
-  },
+  
 };
 
