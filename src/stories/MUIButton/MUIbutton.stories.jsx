@@ -7,13 +7,14 @@ export default {
   component: Button,
 
   argTypes: {
-    size: {
-      options: ["small", "medium", "large"],
-      control: { type: "radio" },
+    onClick: { action: 'clicked' },
+    color: {
+      options: ['primary', 'secondary'],
+      control: {type: 'radio'}
     },
-    variant: {
-      options: ["contained", "outlined", "default"],
-      control: { type: "radio" },
+    size: {
+      options: ['small', 'medium', 'large'],
+      control: {type: 'radio'}
     },
   },
 };
@@ -29,7 +30,7 @@ function Template(args) {
       size={args.size}
       style={style.color && style.backgroundColor ? style : null}
       color={args.color}
-      {...args}
+      onClick={args.onClick}
     >
       {args.label}
     </Button>
