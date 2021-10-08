@@ -10,9 +10,28 @@ import {
   Button,
   FormHelperText,
 } from "@mui/material";
+import { Themes } from "../form/formstyles"
 
-export const Form = ({ docName }) => {
-  
+function themePicker(theme) {
+    // console.log(Themes)
+    for (let i = 0; i < Themes.length; i++){
+        console.log(theme)
+        console.log(Themes.length);
+        if (theme === Themes[i].name) {
+            return (Themes[i])
+        }
+    }
+}
+
+export const Form = ({ docName, theme }) => {
+  console.log(theme)
+    const selectedTheme = themePicker(theme)
+    console.log(selectedTheme)
+
+
+
+
+
   const [selectValue, setSelectValue] = useState("firstOption");
 
   const selectOnChange = (e) => {
@@ -24,16 +43,27 @@ export const Form = ({ docName }) => {
       {docName === "Comment" ? (
         <>
           <Grid xs={12}>
-            <Typography variant="h1">Form: {docName}</Typography>
+            <Typography style={selectedTheme} variant="h1">
+              Form: {docName}
+            </Typography>
           </Grid>
           <Grid xs={6}>
-            <TextField fullWidth label="First Name"></TextField>
+            <TextField
+              style={selectedTheme}
+              fullWidth
+              label="First Name"
+            ></TextField>
           </Grid>
           <Grid xs={6}>
-            <TextField fullWidth label="Last Name"></TextField>
+            <TextField
+              style={selectedTheme}
+              fullWidth
+              label="Last Name"
+            ></TextField>
           </Grid>
           <Grid xs={12}>
             <TextField
+              style={selectedTheme}
               multiline
               rows={4}
               rowsMax={10}
@@ -50,22 +80,41 @@ export const Form = ({ docName }) => {
       {docName === "Document" ? (
         <>
           <Grid xs={12}>
-            <Typography variant="h1">Form: {docName}</Typography>
+            <Typography style={selectedTheme} variant="h1">
+              Form: {docName}
+            </Typography>
           </Grid>
           <Grid xs={6}>
-            <TextField fullWidth label="First Name"></TextField>
+            <TextField
+              style={selectedTheme}
+              fullWidth
+              label="First Name"
+            ></TextField>
           </Grid>
           <Grid xs={6}>
-            <TextField fullWidth label="Last Name"></TextField>
+            <TextField
+              style={selectedTheme}
+              fullWidth
+              label="Last Name"
+            ></TextField>
           </Grid>
           <Grid xs={6}>
-            <TextField fullWidth label="Doc Name"></TextField>
+            <TextField
+              style={selectedTheme}
+              fullWidth
+              label="Doc Name"
+            ></TextField>
           </Grid>
           <Grid xs={6}>
-            <TextField fullWidth label="Doc Number"></TextField>
+            <TextField
+              style={selectedTheme}
+              fullWidth
+              label="Doc Number"
+            ></TextField>
           </Grid>
           <Grid xs={6}>
             <Select
+              style={selectedTheme}
               displayEmpty
               value={selectValue}
               fullWidth
@@ -75,13 +124,20 @@ export const Form = ({ docName }) => {
               <MenuItem value="firstOption">firstOption</MenuItem>
               <MenuItem value="secondOption">secondOption</MenuItem>
             </Select>
-            <FormHelperText>Make a selection</FormHelperText>
+            <FormHelperText style={selectedTheme}>
+              Make a selection
+            </FormHelperText>
           </Grid>
           <Grid item xs={6}>
-            <TextField fullWidth label="Expiration Date m/dd/yyyy"></TextField>
+            <TextField
+              style={selectedTheme}
+              fullWidth
+              label="Expiration Date m/dd/yyyy"
+            ></TextField>
           </Grid>
         </>
       ) : null}
+      <Button style={selectedTheme}>Submit</Button>
     </>
   );
 };
@@ -90,10 +146,10 @@ export const Form = ({ docName }) => {
 
 Form.propTypes = {
   docName: PropTypes.shape({}),
- 
+  theme: PropTypes.shape({}),
 };
 
 Form.defaultProps = {
-  docName: "Document",
+    docName: "Document",
 };
 

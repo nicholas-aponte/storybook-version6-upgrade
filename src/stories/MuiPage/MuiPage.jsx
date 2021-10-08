@@ -14,9 +14,9 @@ import {
 // based on docname, we show a different form
 
 // export const Form = ({ docName }) => {
-export const  MuiPage = ({ docName }) => {
+export const  MuiPage = ({ docName, theme }) => {
   
-
+console.log("test")
 
   return (
     <div
@@ -26,12 +26,7 @@ export const  MuiPage = ({ docName }) => {
         paddingLeft: "20%",
       }}
     >
-      <Form docName = {docName}/>
-      <Grid container>
-        <Grid item xs={12}>
-          <Button>Submit</Button>
-        </Grid>
-      </Grid>
+      <Form theme={theme} docName={docName} />
     </div>
   );
 }
@@ -40,6 +35,10 @@ MuiPage.propTypes = {
   docName: {
     options: ["Document", "Comment"],
     control: { type: "radio" },
+  },
+  themes: {
+    options: ["Dark", "Light", "Red", "Blue"],
+    control: { type: "select" },
   },
 };
 
