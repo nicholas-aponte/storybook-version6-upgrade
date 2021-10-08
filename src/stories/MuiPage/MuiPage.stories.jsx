@@ -11,7 +11,8 @@ export default {
     docName: {
       options: ["Document", "Comment"],
       control: { type: "radio" },
-    },
+      },
+      
   },
 };
 

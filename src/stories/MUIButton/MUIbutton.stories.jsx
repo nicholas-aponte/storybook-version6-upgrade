@@ -20,15 +20,20 @@ export default {
 };
 
 function Template(args) {
-  const style = {
+  
+
+const style = {
     backgroundColor: args.backgroundcolor,
     color: args.textcolor,
   };
+
+
+  
   console.log(style);
   return (
     <Button
       size={args.size}
-      style={style.color && style.backgroundColor ? style : null}
+      style={style.color && style.backgroundColor ? style : args.style}
       color={args.color}
       onClick={args.onClick}
     >
