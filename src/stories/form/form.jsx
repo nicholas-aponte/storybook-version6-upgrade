@@ -10,6 +10,7 @@ import {
   Button,
   FormHelperText,
 } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { Themes } from "../form/formstyles";
 
 function themePicker(theme) {
@@ -24,9 +25,21 @@ function themePicker(theme) {
 }
 
 export const Form = ({ docName, theme }) => {
-  console.log(theme);
   const selectedTheme = themePicker(theme);
-  console.log(selectedTheme);
+
+    const useStyles = makeStyles({
+      label: {
+        "&&": {
+          color: selectedTheme.textField.color,
+        },
+      },
+      contentText: {
+        "&&": {
+          color: selectedTheme.textField.color,
+        },
+      },
+    });
+  const classes = useStyles();
 
   const [selectValue, setSelectValue] = useState("firstOption");
 
@@ -34,42 +47,58 @@ export const Form = ({ docName, theme }) => {
     let selected = e.target.value;
     setSelectValue(selected);
   };
-  return (
-    <div style={selectedTheme}>
-      <Grid
-        container
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Grid item xs={6}>
-          <Typography variant="h1">Form: {docName}</Typography>
+    return (
+      <div style={selectedTheme.container}>
+        <Grid
+          container
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Grid item xs={6}>
+            <Typography style={selectedTheme.titles} variant="h1">
+              Form: {docName}
+            </Typography>
+          </Grid>
         </Grid>
-      </Grid>
-      <Grid container>
+
         {docName === "Comment" ? (
-          <>
-            <Grid xs={6}>
+          <Grid container spacing={1}>
+            <Grid item xs={6}>
               <TextField
+                label="First Name"
+                style={selectedTheme.textField}
                 InputProps={{
-                  style: {
-                    color: "white",
-                  },
+                  className: classes.contentText,
+                }}
+                InputLabelProps={{
+                  className: classes.label,
                 }}
                 fullWidth
-                label="First Name"
               />
             </Grid>
-            <Grid xs={6}>
+            <Grid item xs={6}>
               <TextField
-                style={selectedTheme}
+                InputProps={{
+                  className: classes.label,
+                }}
+                InputLabelProps={{
+                  className: classes.label,
+                }}
+                style={selectedTheme.textField}
                 fullWidth
                 label="Last Name"
               ></TextField>
             </Grid>
-            <Grid xs={12}>
+            <Grid item xs={12}>
               <TextField
-                style={selectedTheme}
+                InputProps={{
+                  className: classes.contentText,
+                }}
+                InputLabelProps={{
+                  className: classes.label,
+                }}
+                style={selectedTheme.textField}
                 multiline
                 rows={4}
                 rowsMax={10}
@@ -77,46 +106,74 @@ export const Form = ({ docName, theme }) => {
                 label="Please leave a comment"
               ></TextField>
             </Grid>
-            <Grid xs={1}>
+            <Grid item xs={1}>
               <Rating fullWidth></Rating>
             </Grid>
-          </>
+          </Grid>
         ) : null}
-
         {docName === "Document" ? (
-          <>
-            
-            <Grid xs={6}>
+          <Grid container spacing={1}>
+            <Grid item xs={6}>
               <TextField
-                style={selectedTheme}
+                InputProps={{
+                  className: classes.contentText,
+                }}
+                InputLabelProps={{
+                  className: classes.label,
+                }}
+                style={selectedTheme.textField}
                 fullWidth
                 label="First Name"
               ></TextField>
             </Grid>
-            <Grid xs={6}>
+            <Grid item xs={6}>
               <TextField
-                style={selectedTheme}
+                InputProps={{
+                  className: classes.contentText,
+                }}
+                InputLabelProps={{
+                  className: classes.label,
+                }}
+                style={selectedTheme.textField}
                 fullWidth
                 label="Last Name"
               ></TextField>
             </Grid>
-            <Grid xs={6}>
+            <Grid item xs={6}>
               <TextField
-                style={selectedTheme}
+                InputProps={{
+                  className: classes.contentText,
+                }}
+                InputLabelProps={{
+                  className: classes.label,
+                }}
+                style={selectedTheme.textField}
                 fullWidth
                 label="Doc Name"
               ></TextField>
             </Grid>
-            <Grid xs={6}>
+            <Grid item xs={6}>
               <TextField
-                style={selectedTheme}
+                InputProps={{
+                  className: classes.contentText,
+                }}
+                InputLabelProps={{
+                  className: classes.label,
+                }}
+                style={selectedTheme.textField}
                 fullWidth
                 label="Doc Number"
               ></TextField>
             </Grid>
-            <Grid xs={6}>
+            <Grid item xs={6}>
               <Select
-                style={selectedTheme}
+                InputProps={{
+                  className: classes.contentText,
+                }}
+                InputLabelProps={{
+                  className: classes.label,
+                }}
+                style={selectedTheme.textField}
                 displayEmpty
                 value={selectValue}
                 fullWidth
@@ -126,23 +183,29 @@ export const Form = ({ docName, theme }) => {
                 <MenuItem value="firstOption">firstOption</MenuItem>
                 <MenuItem value="secondOption">secondOption</MenuItem>
               </Select>
-              <FormHelperText style={selectedTheme}>
+              <FormHelperText >
                 Make a selection
               </FormHelperText>
             </Grid>
             <Grid item xs={6}>
               <TextField
-                style={selectedTheme}
+                InputProps={{
+                  className: classes.contentText,
+                }}
+                InputLabelProps={{
+                  className: classes.label,
+                }}
+                style={selectedTheme.textField}
                 fullWidth
                 label="Expiration Date m/dd/yyyy"
               ></TextField>
             </Grid>
-          </>
+          </Grid>
         ) : null}
+
         <Button style={selectedTheme}>Submit</Button>
-      </Grid>
-    </div>
-  );
+      </div>
+    );
 };
 
 Form.propTypes = {
