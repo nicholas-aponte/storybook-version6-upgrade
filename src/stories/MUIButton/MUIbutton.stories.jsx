@@ -1,26 +1,27 @@
-import React from 'react';
+import React from "react";
 
 import Button from "@mui/material/Button";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Demo/MUIbutton',
+  title: "Demo/MUIbutton",
   component: Button,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    
-    
     size: {
-      options: ['small', 'medium', 'large'],
-      control: {type: 'radio'}
+      options: ["small", "medium", "large"],
+      control: { type: "radio" },
     },
     variant: {
-      options: ['contained', 'outlined', 'default'],
-      control: {type: 'radio'}
-    }
+      options: ["contained", "outlined", "default"],
+      control: { type: "radio" },
+    },
+
+    color: {
+      options: ["primary", "secondary"],
+      control: { type: "radio" },
+    },
   },
-
-
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
@@ -28,9 +29,9 @@ export default {
 function Template(args) {
   const style = {
     backgroundColor: args.backgroundcolor,
-    color: args.textcolor
-  }
-console.log(style)
+    color: args.textcolor,
+  };
+  console.log(style);
   return (
     <Button
       size={args.size}
@@ -46,7 +47,6 @@ console.log(style)
 
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 
-
 export const Default = Template.bind({});
 
 export const CustomColorButton = Template.bind({});
@@ -54,15 +54,13 @@ CustomColorButton.args = {
   label: "Test",
   backgroundcolor: "blue",
   textcolor: "red",
-  variant: "contained"
-  
- }
+  variant: "contained",
+};
 
 export const Primary = Template.bind({});
 Primary.args = {
-  primary : true,
-  label: 'Button',
-  test: "one"
+  primary: true,
+  label: "Button",
 };
 
 export const Outlined = Template.bind({});
@@ -70,10 +68,7 @@ Outlined.args = {
   size: "small",
   label: "Outlined",
   variant: "outlined",
-  color: {
-    options: ["primary", "secondary"],
-    control: { type: "radio" },
-  },
+  color: "primary",
 };
 
 export const Contained = Template.bind({});
@@ -81,45 +76,22 @@ Contained.args = {
   size: "small",
   label: "Contained",
   variant: "contained",
-  color: {
-    options: ["primary", "secondary"],
-    control: { type: "radio" },
-  },
+  color: "primary",
 };
-export const PrimaryColor = Template.bind({});
-PrimaryColor.args = {
+export const MUIColor = Template.bind({});
+MUIColor.args = {
   size: "Large",
   label: "PrimaryColor",
   variant: "contained",
-  color: {
-    options: ["primary", "secondary"],
-    control: { type: "radio" },
-  },
+  color: "primary",
 };
 
-
-export const SecondaryColor = Template.bind({});
-SecondaryColor.args = {
-  size: "Large",
-  label: "SecondayColor",
-  variant: "contained",
-  color: {
-    options: ["primary", "secondary"],
-    control: { type: "radio" },
-  },
-};
 export const customStyle = Template.bind({});
 customStyle.args = {
   size: "Large",
   label: "style",
   style: {
-   color: "yellow",
-   backgroundColor: "green"
-  }
- 
+    color: "yellow",
+    backgroundColor: "green",
+  },
 };
-
-
-
-
-
