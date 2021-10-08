@@ -2,11 +2,10 @@ import React from "react";
 
 import Button from "@mui/material/Button";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Demo/MUIbutton",
   component: Button,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+
   argTypes: {
     size: {
       options: ["small", "medium", "large"],
@@ -16,16 +15,9 @@ export default {
       options: ["contained", "outlined", "default"],
       control: { type: "radio" },
     },
-
-    color: {
-      options: ["primary", "secondary"],
-      control: { type: "radio" },
-    },
   },
 };
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-// const Template = (args) => <Button {...args} >{args.label}</Button>;
 function Template(args) {
   const style = {
     backgroundColor: args.backgroundcolor,
@@ -36,7 +28,6 @@ function Template(args) {
     <Button
       size={args.size}
       style={style.color && style.backgroundColor ? style : null}
-      // className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
       color={args.color}
       {...args}
     >
@@ -44,8 +35,6 @@ function Template(args) {
     </Button>
   );
 }
-
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 
 export const Default = Template.bind({});
 
@@ -83,7 +72,6 @@ MUIColor.args = {
   size: "Large",
   label: "PrimaryColor",
   variant: "contained",
-  color: "primary",
 };
 
 export const customStyle = Template.bind({});
