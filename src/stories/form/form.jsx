@@ -199,7 +199,7 @@ export const Form = ({ docName, theme, displayList }) => {
                 }}
                 style={selectedTheme.textField}
                 fullWidth
-                label="Expiration Date m/dd/yyyy"
+                label="Expiration Date mm/dd/yyyy"
               ></TextField>
             </Grid>
           </Grid>
@@ -212,10 +212,12 @@ export const Form = ({ docName, theme, displayList }) => {
 };
 
 Form.propTypes = {
-  docName: PropTypes.shape({}),
-  theme: PropTypes.shape({}),
+  docName: PropTypes.oneOf(['Document', 'Comment']),
+  
+  // theme: PropTypes.shape({}),
 };
 
 Form.defaultProps = {
   docName: "Document",
+  theme: 'light'
 };

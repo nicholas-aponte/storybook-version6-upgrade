@@ -10,6 +10,11 @@ export default {
       options: ["Document", "Comment"],
       control: { type: "radio" },
     },
+    theme: {
+      defaultValue: 'Light',
+      options: ["Dark", "Light", "Red", "Blue"],
+      control: { type: "select" },
+    },
   },
 };
 
@@ -22,8 +27,3 @@ export const DynamicForm = Template.bind({});
 DynamicForm.args = {
   docName: "Document"
 };
-
-// export const Comment = Template.bind({});
-// Comment.args = {
-//     docName: "Comment"
-// };
