@@ -13,9 +13,11 @@ export default {
       control: { type: "radio" },
     },
     theme: {
+      defaultValue: 'Light',
       options: ["Dark", "Light", "Red", "Blue"],
       control: { type: "select" },
     },
+    
   },
 };
 

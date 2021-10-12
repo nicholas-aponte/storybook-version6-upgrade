@@ -39,3 +39,9 @@ MuiPage.propTypes = {
   
 };
 
+MuiPage.defaultProps = {
+  docName: "Document",
+  theme: "Light"
+};
+
+
