@@ -2,7 +2,6 @@ import React from "react";
 import {getLists} from "./../../data/api"
 import { MuiPage } from "../MuiPage/MuiPage";
 import * as formStories from "../form/form.stories";
-<<<<<<< HEAD
 
  getLists()
 
@@ -11,12 +10,9 @@ let listOptions = []
 for (let i = 0; i < lists.length; i++){
   listOptions.push(lists[i]["listName"]);
 }
-console.log(listOptions)
-console.log(listOptions);
+
 const optionsArray = ["Dark", "Light", "Red", "Blue"]
 
-=======
->>>>>>> daee7f1b3a4047cc0575d96e467b23afcc8fcf3c
 
 export default {
   title: "Demo/MuiPage",
