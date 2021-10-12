@@ -2,7 +2,6 @@ import React from "react";
 
 import { MuiPage } from "../MuiPage/MuiPage";
 import * as formStories from "../form/form.stories";
-import { Themes } from "../form/formstyles"
 
 export default {
   title: "Demo/MuiPage",
