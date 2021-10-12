@@ -16,7 +16,7 @@ import {
 // export const Form = ({ docName }) => {
 export const  MuiPage = ({ docName, theme }) => {
   
-console.log("test")
+
 
   return (
     <div

@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import PropTypes from "prop-types";
+import { } from "@storybook/design-system";
 import {
   Rating,
   MenuItem,
@@ -14,10 +15,9 @@ import { makeStyles } from "@mui/styles";
 import { Themes } from "../form/formstyles";
 
 function themePicker(theme) {
-  // console.log(Themes)
+  
   for (let i = 0; i < Themes.length; i++) {
-    console.log(theme);
-    console.log(Themes.length);
+  
     if (theme === Themes[i].name) {
       return Themes[i];
     }
@@ -49,6 +49,7 @@ export const Form = ({ docName, theme }) => {
   };
     return (
       <div style={selectedTheme.container}>
+        
         <Grid
           container
           direction="column"
@@ -61,7 +62,6 @@ export const Form = ({ docName, theme }) => {
             </Typography>
           </Grid>
         </Grid>
-
         {docName === "Comment" ? (
           <Grid container spacing={1}>
             <Grid item xs={6}>
@@ -183,9 +183,7 @@ export const Form = ({ docName, theme }) => {
                 <MenuItem value="firstOption">firstOption</MenuItem>
                 <MenuItem value="secondOption">secondOption</MenuItem>
               </Select>
-              <FormHelperText >
-                Make a selection
-              </FormHelperText>
+              <FormHelperText>Make a selection</FormHelperText>
             </Grid>
             <Grid item xs={6}>
               <TextField
@@ -202,7 +200,6 @@ export const Form = ({ docName, theme }) => {
             </Grid>
           </Grid>
         ) : null}
-
         <Button style={selectedTheme}>Submit</Button>
       </div>
     );

@@ -1,8 +1,13 @@
 import React from "react";
-
+import {getLists} from "./../../data/api"
 import { MuiPage } from "../MuiPage/MuiPage";
 import * as formStories from "../form/form.stories";
-import { Themes } from "../form/formstyles"
+
+const lists = getLists()
+console.log(lists)
+
+const optionsArray = ["Dark", "Light", "Red", "Blue"]
+
 
 export default {
   title: "Demo/MuiPage",
@@ -14,15 +19,18 @@ export default {
     },
     theme: {
       defaultValue: 'Light',
-      options: ["Dark", "Light", "Red", "Blue"],
+      options: optionsArray,
       control: { type: "select" },
     },
+    data: {
+
+    }
     
   },
 };
 
 const Template = (args) => {
-  console.log(args)
+
     return (<MuiPage {...args} />)
 } 
 

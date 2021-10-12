@@ -14,7 +14,7 @@ export default {
 };
 
 const Template = (args) => {
-  console.log(args)
+
   return (<Form {...args} />)
 }
 
