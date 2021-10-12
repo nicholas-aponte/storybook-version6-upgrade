@@ -5,10 +5,11 @@ function getLists() {
         return response.json();
       })
       .then(function (data) {
-        console.log(data)
+        localStorage.setItem("Lists", JSON.stringify(data))
       }) .catch((error) => {
       console.log(error)
-    });
+      });
+    
 
 }
 

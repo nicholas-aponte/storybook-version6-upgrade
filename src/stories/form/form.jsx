@@ -24,7 +24,8 @@ function themePicker(theme) {
   }
 }
 
-export const Form = ({ docName, theme }) => {
+export const Form = ({ docName, theme, displayList }) => {
+  console.log(displayList)
   const selectedTheme = themePicker(theme);
 
     const useStyles = makeStyles({
@@ -39,8 +40,12 @@ export const Form = ({ docName, theme }) => {
         },
       },
     });
+  
+  
+  
   const classes = useStyles();
 
+  
   const [selectValue, setSelectValue] = useState("firstOption");
 
   const selectOnChange = (e) => {
@@ -49,7 +54,6 @@ export const Form = ({ docName, theme }) => {
   };
     return (
       <div style={selectedTheme.container}>
-        
         <Grid
           container
           direction="column"
@@ -201,6 +205,8 @@ export const Form = ({ docName, theme }) => {
           </Grid>
         ) : null}
         <Button style={selectedTheme}>Submit</Button>
+        <Typography>List</Typography>
+        <ul>{displayList}</ul>
       </div>
     );
 };

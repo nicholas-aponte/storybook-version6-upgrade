@@ -3,9 +3,15 @@ import {getLists} from "./../../data/api"
 import { MuiPage } from "../MuiPage/MuiPage";
 import * as formStories from "../form/form.stories";
 
-const lists = getLists()
-console.log(lists)
+ getLists()
 
+const lists = JSON.parse(localStorage.getItem("Lists"))
+let listOptions = []
+for (let i = 0; i < lists.length; i++){
+  listOptions.push(lists[i]["listName"]);
+}
+console.log(listOptions)
+console.log(listOptions);
 const optionsArray = ["Dark", "Light", "Red", "Blue"]
 
 
@@ -18,25 +24,29 @@ export default {
       control: { type: "radio" },
     },
     theme: {
-      defaultValue: 'Light',
+      defaultValue: "Light",
       options: optionsArray,
       control: { type: "select" },
     },
-    data: {
-
-    }
-    
+    listName: {
+      defaultValue: "List-A",
+      options: listOptions,
+      control: { type: "select" },
+    },
   },
 };
 
 const Template = (args) => {
 
     return (<MuiPage {...args} />)
-} 
+}
+
 
 export const DynamicForm = Template.bind({});
 DynamicForm.args = {
   ...formStories.DynamicForm.args,
 
 };
+
+
 
