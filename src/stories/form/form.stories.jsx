@@ -17,12 +17,10 @@ export default {
     },
   },
 };
-
 const Template = (args) => {
 
   return (<Form {...args} />)
 }
-
 export const DynamicForm = Template.bind({});
 DynamicForm.args = {
   docName: "Document"

@@ -1,18 +1,17 @@
 import React from "react";
-import {getLists} from "./../../data/api"
+import { getLists } from "./../../data/api";
 import { MuiPage } from "../MuiPage/MuiPage";
 import * as formStories from "../form/form.stories";
 
- getLists()
+getLists();
 
-const lists = JSON.parse(localStorage.getItem("Lists"))
-let listOptions = []
-for (let i = 0; i < lists.length; i++){
+const lists = JSON.parse(localStorage.getItem("Lists"));
+let listOptions = [];
+for (let i = 0; i < lists.length; i++) {
   listOptions.push(lists[i]["listName"]);
 }
 
-const optionsArray = ["Dark", "Light", "Red", "Blue"]
-
+const optionsArray = ["Dark", "Light", "Red", "Blue"];
 
 export default {
   title: "Demo/MuiPage",
@@ -36,16 +35,10 @@ export default {
 };
 
 const Template = (args) => {
-
-    return (<MuiPage {...args} />)
-}
-
+  return <MuiPage {...args} />;
+};
 
 export const DynamicForm = Template.bind({});
 DynamicForm.args = {
   ...formStories.DynamicForm.args,
-
 };
-
-
-

@@ -29,7 +29,7 @@ const style = {
 
 
   
-  console.log(style);
+
   return (
     <Button
       size={args.size}
